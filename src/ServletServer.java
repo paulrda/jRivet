@@ -1,4 +1,8 @@
-import sun.servlet.http.HttpServer;
+//import sun.servlet.http.HttpServer;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+
+import com.sun.net.httpserver.HttpServer;
 
 public class ServletServer {
  
@@ -29,7 +33,16 @@ public class ServletServer {
       arguments[i++] = servletDir;
     }
     
-    HttpServer.main(arguments);
+//    HttpServer.main(arguments);
+    try
+    {
+        HttpServer.create(new InetSocketAddress("localhost", 8100),8100).start();
+    }
+    catch (IOException e)
+    {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
   }
 }
  

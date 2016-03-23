@@ -62,17 +62,27 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
+//import javax.xml.parsers.SAXParser;
+//import javax.xml.parsers.SAXParserFactory;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
+
 
 import webBoltOns.client.WindowItem;
 import webBoltOns.dataContol.DataAccess;
 import webBoltOns.dataContol.DataSet;
 
-import com.sun.xml.tree.XmlDocument;
+//import com.sun.xml.tree.XmlDocument;
 
 public class DevelopmentTools {
 
@@ -180,7 +190,8 @@ public class DevelopmentTools {
 	
 			
 	public DataSet saveScriptDetails(DataSet script, DataAccess dataAccess) {
-			try {
+		/*	
+		try {
 			XmlDocument xml = new XmlDocument();
 			Element root = xml.createElement("SCRIPT");
 			String scriptname = script.getStringField("ScriptID");
@@ -283,6 +294,7 @@ public class DevelopmentTools {
 			dataAccess.logMessage(" *DevelopmentTools.saveScriptDetails*  --  " + e );
 			script.addMessage("Script Not Found", "30", null, null);
 		}
+		*/
 		return script;
 	}
 		

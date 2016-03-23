@@ -57,13 +57,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import com.sun.image.codec.jpeg.ImageFormatException;
+import javax.swing.JOptionPane;
+
+/*import com.sun.image.codec.jpeg.ImageFormatException;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;*/
+
 
 public class JPEGEncoder {
 
@@ -77,15 +81,24 @@ public class JPEGEncoder {
 		BufferedImage bimg = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
 		bimg.createGraphics().drawImage(image, 0, 0, null);
 	
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+		
+		
+		
+		/*JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
 		JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(bimg);
 		param.setQuality(1.0f, false);
-		encoder.setJPEGEncodeParam(param);
-		try {
+		encoder.setJPEGEncodeParam(param);*/
+		/*try {
 			encoder.encode(bimg);
 		} catch (Exception e) {
 			return false;
-		}
+		}*/
+		try {
+            ImageIO.write(bimg, "jpg", out);
+        } catch (Exception e) {
+        	JOptionPane.showConfirmDialog(null, "JPEGEncorder class "+e.getStackTrace());
+            return false;
+        }
 		return true;
 	}
 }

@@ -94,7 +94,8 @@ import webBoltOns.client.components.CComboBoxField.ComboItem;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.dataContol.DataSet;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
+//import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
+import java.util.Hashtable;
 
 public class CTableColumn extends JComponent implements StandardComponentLayout  {
 
